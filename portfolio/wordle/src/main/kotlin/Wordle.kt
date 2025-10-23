@@ -30,8 +30,6 @@ fun evaluateGuess(guess: String, target: String): List<Int>{
     val guessWordGuesser = mutableListOf<Int>()
     for (i in guess.indices){
         if (guess[i] == target[i]){
-            guessWordGuesser.add(2)
-        }else if (guess[i] in target){
             guessWordGuesser.add(1)
         }else {
             guessWordGuesser.add(0)
@@ -41,7 +39,10 @@ fun evaluateGuess(guess: String, target: String): List<Int>{
 }
 fun displayGuess(guess: String, matches: List<Int>): Boolean{
     println("Your guess: $guess\nCorrect guesses: $matches")
-    if (matches == listOf(2, 2, 2, 2, 2)){
+    for (i in guess.indices){
+
+    }
+    if (matches == listOf(1, 1, 1, 1, 1)){
         return true
     }else{
         return false

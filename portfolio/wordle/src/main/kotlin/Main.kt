@@ -2,6 +2,7 @@ fun main() {
     val wordList = readWordList("C:\\Users\\nazaa\\IdeaProjects\\comp2850-oop-work\\portfolio\\wordle\\data\\words.txt")
     val selectedWord = pickRandomWord(wordList)
     println(selectedWord)
+    var guessedCorrectly = false
     println("Welcome to Wordle!\nGuess today's word!") //intro message
     for (i in 1..10){
         val userGuess = obtainGuess(GuessCounter.guessCounter, wordList)
@@ -11,11 +12,14 @@ fun main() {
         val evaluatedGuess = evaluateGuess(userGuess, selectedWord)
         val correct = displayGuess(userGuess, evaluatedGuess)
         if (correct){
-            println("You guessed it correctly!")
+            println("You guessed it correctly!\nThe word was: $selectedWord")
+            guessedCorrectly = true
             break
         }
     }
-    println("Better luck next time!")
+    if (!guessedCorrectly){
+        println("Better luck next time!\nThe word was: $selectedWord")
+    }
 
 }
 //get random word
