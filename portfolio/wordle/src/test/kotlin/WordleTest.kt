@@ -4,14 +4,13 @@ import java.io.File
 
 class WordleTest : StringSpec({
 
-
     "isValid should return true only for valid 5-letter words in list" {
         val wordList = mutableListOf("APPLE", "BERRY", "CHAIR")
 
-        isValid("APPLE", wordList) shouldBe true   // valid and in list
-        isValid("DOG", wordList) shouldBe false    // too short
+        isValid("APPLE", wordList) shouldBe true // valid and in list
+        isValid("DOG", wordList) shouldBe false // too short
         isValid("HELLO!", wordList) shouldBe false // contains invalid character
-        isValid("MANGO", wordList) shouldBe false  // 5 letters but not in list
+        isValid("MANGO", wordList) shouldBe false // 5 letters but not in list
     }
 
     "readWordList should read file contents correctly" {
@@ -39,7 +38,4 @@ class WordleTest : StringSpec({
         evaluateGuess("CHAIR", "BERRY") shouldBe listOf(0, 0, 0, 0, 0)
         evaluateGuess("BERRY", "BERRY") shouldBe listOf(1, 1, 1, 1, 1)
     }
-
-
-
 })
