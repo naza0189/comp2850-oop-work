@@ -44,7 +44,9 @@ fun evaluateGuess(guess: String, target: String): List<Int> { // returns a list 
     val guessWordGuesser = mutableListOf<Int>()
     for (i in guess.indices) {
         if (guess[i] == target[i]) { // 1 = correct letter AND position
-            guessWordGuesser.add(1)
+            guessWordGuesser.add(2)
+        } else if (guess[i] in target) {
+            guessWordGuesser.add(1) // 0 = correct letter wrong position
         } else {
             guessWordGuesser.add(0) // 0 = incorrect letter AND position
         }
@@ -54,7 +56,7 @@ fun evaluateGuess(guess: String, target: String): List<Int> { // returns a list 
 
 fun displayGuess(guess: String, matches: List<Int>): Boolean { // returns a boolean for the flag
     println("Your guess: $guess\nCorrect guesses: $matches")
-    if (matches == listOf(1, 1, 1, 1, 1)) {
+    if (matches == listOf(2, 2, 2, 2, 2)) {
         return true
     } else {
         return false

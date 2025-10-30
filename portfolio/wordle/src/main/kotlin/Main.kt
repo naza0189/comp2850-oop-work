@@ -10,7 +10,7 @@ fun main() {
 
     while (GuessCounter.guessNumber <= MAX_GUESSES) { // 10 loops for the user to guess the word
         val userGuess = obtainGuess(GuessCounter.guessNumber) // calling the user to guess the word
-        if (!isValid(userGuess, wordList)) { // checking if the word is valid
+        if (isValid(userGuess, wordList)) { // checking if the word is valid
             val evaluatedGuess = evaluateGuess(userGuess, selectedWord) // comparing the users word with the answer
             val correct = displayGuess(userGuess, evaluatedGuess) // display the comparison
             if (correct) {
